@@ -6,61 +6,64 @@
   <title>Which Side Hustle Is Right For You?</title>
   <style>
     :root{
-      --bg:#000000;
-      --card:#111111;
-      --muted:#aaaaaa;
-      --text:#ffffff;
-      --accent:#6a5acd; /* purple accent */
-      --accent-2:#00bfff; /* dream blue */
+      --bg:#0f172a; /* slate-900 */
+      --card:#111827; /* gray-900 */
+      --muted:#94a3b8; /* slate-400 */
+      --text:#e5e7eb; /* gray-200 */
+      --accent:#22c55e; /* green-500 */
+      --accent-2:#06b6d4; /* cyan-500 */
     }
     *{box-sizing:border-box}
     body{
       margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial; 
-      background: var(--bg);
+      background: radial-gradient(1200px 600px at 20% -10%, #1f2937, transparent),
+                  radial-gradient(800px 400px at 110% 10%, #0b1730, transparent),
+                  var(--bg);
       color:var(--text);
       min-height:100dvh;
       display:flex; align-items:center; justify-content:center; padding:24px;
     }
     .container{ width:100%; max-width:920px; }
     .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
       border:1px solid rgba(255,255,255,0.08);
-      box-shadow:0 10px 30px rgba(0,0,0,0.4);
+      box-shadow:0 10px 30px rgba(0,0,0,0.3);
       border-radius:24px; overflow:hidden;
-      text-align:center;
     }
-    header{ padding:28px 28px 0 28px; }
-    header img{ max-width:220px; margin-bottom:16px; }
+    header{ padding:28px 28px 0 28px; text-align:center; }
     h1{ margin:0 0 8px 0; font-size:clamp(28px, 5vw, 42px); letter-spacing:.2px; }
     p.sub{ margin:0; color:var(--muted) }
     .content{ padding:20px 28px 28px 28px; }
-    .progress{ height:10px; background:#1f1f1f; border-radius:999px; overflow:hidden; margin:18px 0 28px }
+    .progress{ height:10px; background:#1f2937; border-radius:999px; overflow:hidden; margin:18px 0 28px }
     .progress > span{ display:block; height:100%; width:0%; background:linear-gradient(90deg, var(--accent), var(--accent-2)); transition:width .3s ease }
-    .question{ margin:22px 0; padding:16px; background:#0f0f0f; border:1px solid rgba(255,255,255,0.06); border-radius:16px }
+    .question{ margin:22px 0; padding:16px; background:#0b1224; border:1px solid rgba(255,255,255,0.06); border-radius:16px }
     .q-title{ margin:0 0 12px; font-weight:600; font-size:18px }
+
     .options{ display:grid; gap:10px }
     .opt{
-      display:flex; align-items:center; gap:12px; padding:12px 14px; border:1px solid rgba(255,255,255,0.1); 
-      border-radius:12px; cursor:pointer; background:#1a1a1a; transition:.2s ease; user-select:none;
+      display:flex; align-items:center; gap:12px; padding:12px 14px; border:1px solid rgba(255,255,255,0.08); 
+      border-radius:12px; cursor:pointer; background:#0f1426; transition:.2s ease; user-select:none;
     }
-    .opt:hover{ border-color: rgba(255,255,255,0.25); transform:translateY(-1px) }
+    .opt:hover{ border-color: rgba(255,255,255,0.18); transform:translateY(-1px) }
     input[type="radio"]{ accent-color:var(--accent); width:18px; height:18px }
+
     .actions{ display:flex; gap:12px; margin-top:16px; flex-wrap:wrap; justify-content:center }
     button{
       all:unset; cursor:pointer; padding:12px 18px; border-radius:12px; font-weight:600; 
-      background:linear-gradient(90deg, var(--accent), var(--accent-2)); color:#ffffff; 
-      box-shadow:0 8px 20px rgba(0,0,0,.4);
+      background:linear-gradient(90deg, var(--accent), var(--accent-2)); color:#0b1224; 
+      box-shadow:0 8px 20px rgba(34,197,94,.25);
     }
-    button.secondary{ background:#1a1a1a; color:var(--text); border:1px solid rgba(255,255,255,0.1); box-shadow:none }
+    button.secondary{ background:#0b1224; color:var(--text); border:1px solid rgba(255,255,255,0.1); box-shadow:none }
     .hide{ display:none }
+
     .result{
-      padding:22px; border:1px solid rgba(255,255,255,.08); border-radius:16px; background:#0f0f0f; margin-top:10px; text-align:left
+      padding:22px; border:1px solid rgba(255,255,255,.08); border-radius:16px; background:#0b1224; margin-top:10px; text-align:left
     }
     .result h2{ margin:0 0 8px; font-size:24px }
     .result p{ margin:.3em 0; color:var(--muted) }
     .cta{
       display:inline-flex; align-items:center; gap:10px; margin-top:16px; padding:14px 18px; font-weight:800; 
-      border-radius:14px; color:#ffffff; background:linear-gradient(90deg, var(--accent), var(--accent-2)); text-decoration:none
+      border-radius:14px; color:#0b1224; background:linear-gradient(90deg, var(--accent), var(--accent-2)); text-decoration:none
     }
     .tiny{ font-size:12px; color:var(--muted); margin-top:8px }
     footer{ padding:0 28px 22px; color:var(--muted); font-size:12px; text-align:center }
@@ -70,30 +73,34 @@
   <div class="container">
     <div class="card">
       <header>
-        <img src="Untitled design (40).png" alt="Dream Workz Logo" />
         <h1>Which Side Hustle Is Right For You?</h1>
         <p class="sub">Answer 6 quick questions to get a tailored recommendation + steps to start today.</p>
-        <p style="margin-top:6px; font-weight:600; color:var(--accent-2)">🔥 Special Invite: Offer Lab Event — Sept 3–6</p>
       </header>
 
       <div class="content">
         <div class="progress" aria-label="Progress"><span id="bar"></span></div>
+
         <form id="quiz" autocomplete="off"></form>
+
         <div id="result" class="result hide" role="region" aria-live="polite"></div>
+
         <div class="actions">
           <button id="nextBtn" type="button">Next →</button>
           <button id="backBtn" class="secondary" type="button">← Back</button>
           <button id="restartBtn" class="secondary" type="button">Restart</button>
         </div>
+
         <p class="tiny">No email required. Your answers stay in your browser.</p>
       </div>
-      <footer>© <span id="year"></span> Dream Workz — Side Hustle Quiz</footer>
+      <footer>© <span id="year"></span> Side Hustle Quiz</footer>
     </div>
   </div>
 
 <script>
 const CTA_URL = 'http://bit.ly/45I6ZG4';
-// (Keep same JS from previous version — unchanged except CTA)
+
+// Hustle categories and questions (same as before)
+// ... [JS content unchanged, same as previous working version] ...
 </script>
 </body>
 </html>
